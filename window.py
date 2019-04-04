@@ -1,15 +1,36 @@
-import tkinter as tk
-# from tkinter import tk as tk
-from os import system
-from sys import platform
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# Window object, creates a tkinter window and stores it as self.Root          #
+#                                                                             #
+# Created April 3rd, 2019                                                     #
+# Written by:                                                                 #
+#   Braeden Richards                                                          #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                 Imports                                     #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+import tkinter as tk        # For window creation
+from os import system       # For bringing window to front if on MacOs
+from sys import platform    # For finding what os is running to bring window to
+                            #    front
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# @Def: Window object for tkinter window creation and manipulation            #
+# @Inherits: None                                                             #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 class Window():
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+    # @Def: __init__ of Object                                                #
+    # @Param: <Engine> engine: Engine containing all the managers             #
+    # @Return: None                                                           #
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def __init__(self, engine):
-        self.Root = None
-        self.width = None
-        self.height = None
-        self.name = None
-        self.engine = engine
+        self.Root = None        # Tkinter window root for this object
+        self.width = None       # Width of window
+        self.height = None      # Height of window
+        self.name = None        # Name of this window (title)
+        self.engine = engine    # Engine that this window is part of
         return
 
     def Initialize(self, w, h, name):
