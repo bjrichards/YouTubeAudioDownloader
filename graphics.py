@@ -97,13 +97,13 @@ class GfxMgr():
                             command=None,
                             value=file).pack(anchor=W)
 
-        # To separate the bottom buttons of application from main application
-        frameFinal = Frame(self.window.Root, relief=RAISED, borderwidth=1)
-        frameFinal.pack(fill=BOTH, expand=True)
-
         # For any warning/update messages while running
         self.frame4 = Frame(self.window.Root)
         self.frame4.pack(fill=X)
+
+        # To separate the bottom buttons of application from main application
+        frameFinal = Frame(self.window.Root, relief=RAISED, borderwidth=1)
+        frameFinal.pack(fill=BOTH, expand=True)
 
         # Quit and Retrieve buttons
         self.retrieve_button = Button(self.window.Root,
