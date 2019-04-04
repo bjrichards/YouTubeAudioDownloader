@@ -62,8 +62,11 @@ class InputMgr():
             return
         # Save file to correct filepath and as the correct file name
         if self.engine.Data.output_file_name != '':
-            self.engine.ExportMgr.ydl_opts['outtmpl'] = self.engine.Data.directory_path + '/' + self.engine.Data.output_file_name + ".%(ext)s"
-        elif self.engine.Data.output_file_name == None or self.engine.Data.output_file_name == '':
+            self.engine.ExportMgr.ydl_opts['outtmpl'] = (
+                    self.engine.Data.directory_path + '/' +
+                    self.engine.Data.output_file_name + ".%(ext)s")
+        elif (self.engine.Data.output_file_name == None or
+                    self.engine.Data.output_file_name == ''):
             self.engine.GfxMgr.Update_User("Add a name for the file!")
             return
         # Retrieve the data from the url, save the data
