@@ -27,14 +27,6 @@ class ExportMgr():
     def __init__(self, engine):
         self.engine = engine    # Engine containing all managers
         # Options/configurations for Youtube-dl to use
-        self.ydl_opts = {
-            'format': 'bestaudio/best',
-            'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-            }],
-        }
         return
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -43,8 +35,8 @@ class ExportMgr():
     # @Return: None                                                           #
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def Run(self, requested_url):
-        self.engine.GfxMgr.Update_User("Downloading")
-        with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
+        # self.engine.GfxMgr.Update_User("Downloading")
+        with youtube_dl.YoutubeDL(self.engine.Data.ydl_opts) as ydl:
             ydl.download([requested_url])
-        self.engine.GfxMgr.Update_User("Finished!")
+        # self.engine.GfxMgr.Update_User("Finished!")
         return

@@ -36,8 +36,8 @@ class InputMgr():
     # @Return: None                                                           #
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def Initialize(self):
-        self.export_type = '.'              # What file extension to save as
-        self.output_file = tk.StringVar()   # File name
+        # self.export_type = '.'              # What file extension to save as
+        # self.output_file = tk.StringVar()   # File name
         return
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -49,25 +49,26 @@ class InputMgr():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def Retrieve(self):
         # Get the name of the file to be saved
-        self.engine.Data.output_file_name = self.engine.GfxMgr.save_name.get()
+        self.engine.Data.output_file_name = self.engine.GfxMgr.save_entry.get()
         # Get the string of what the
-        self.engine.Data.export_type = 'mp3'
+        self.engine.Data.ydl_opts["postprocessors"][0]["preferredcodec"] = (
+                self.engine.Data.export_type.get())
         # Get the full string of the output file
         self.engine.Data.output_file = (self.engine.Data.output_file_name + '.'
-                + self.engine.Data.export_type)
+                + self.engine.Data.export_type.get())
         # Get the url to read from
         self.engine.Data.requested_url = self.engine.GfxMgr.url_entry.get()
         if self.engine.Data.directory_path == None:
-            self.engine.GfxMgr.Update_User("Choose where to save the file!")
+            # self.engine.GfxMgr.Update_User("Choose where to save the file!")
             return
         # Save file to correct filepath and as the correct file name
         if self.engine.Data.output_file_name != '':
-            self.engine.ExportMgr.ydl_opts['outtmpl'] = (
+            self.engine.Data.ydl_opts['outtmpl'] = (
                     self.engine.Data.directory_path + '/' +
                     self.engine.Data.output_file_name + ".%(ext)s")
         elif (self.engine.Data.output_file_name == None or
                     self.engine.Data.output_file_name == ''):
-            self.engine.GfxMgr.Update_User("Add a name for the file!")
+            # self.engine.GfxMgr.Update_User("Add a name for the file!")
             return
         # Retrieve the data from the url, save the data
         _thread.start_new_thread(self.engine.ExportMgr.Run,(
@@ -90,4 +91,8 @@ class InputMgr():
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
     def Get_Dir(self):
         self.engine.Data.directory_path = filedialog.askdirectory()
+        return
+
+    def Set_Export(self, file):
+        # self.engine.Data.export_type =
         return

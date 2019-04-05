@@ -24,5 +24,14 @@ class Data():
         self.directory_path = None
         # URL to get the data from
         self.requested_url = None
+        # Options for Youtube-dl with some defaults
+        self.ydl_opts = {
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+            }],
+        }
 
         return

@@ -44,7 +44,7 @@ class Window():
         # Position window in center of screen on open
         self.positionRight = int(self.Root.winfo_screenwidth()/2 - self.width/2)
         self.positionDown = int(self.Root.winfo_screenheight()/2 - self.height/2)
-        self.Root.geometry("+{}+{}".format(self.positionRight, self.positionDown))
+        self.Root.geometry("+{}+{}".format(self.positionRight, self .positionDown))
         # Don't let the window be resized
         self.Root.resizable(0, 0)
 
