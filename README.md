@@ -13,13 +13,13 @@ In addition to Python3.6, this project requires installation of the following li
  * [Youtube-dl](http://ytdl-org.github.io/youtube-dl/)
 
 ### MacOS
-####Installing of libraries
+#### Installing of libraries
 Assumption made that the user has access to pip3.
 ```bash
   pip3 install ffmpeg youtube-dl
 
 ```
-####Run Application
+#### Run Application
 ```bash
   python main.py
 ```
