@@ -56,10 +56,10 @@ class GfxMgr():
     def Init_UI(self):
 
         # Creating main containers
-        self.top_frame = Frame(self.window.Root, width=600, height=250, pady=3)
-        self.bottom_frame = Frame(self.window.Root, width=600, height=50)
-        self.bottom_left = Frame(self.bottom_frame, width=450)
-        self.bottom_right = Frame(self.bottom_frame, width=150)
+        self.top_frame = Frame(self.window.Root, width=540, height=250, pady=3, bg="#f4c242")
+        self.bottom_frame = Frame(self.window.Root, width=540, height=50, bg="#f4c242")
+        self.bottom_left = Frame(self.bottom_frame, width=420, bg="#f4c242")
+        self.bottom_right = Frame(self.bottom_frame, width=120, bg="#f4c242")
 
         # Layout main containers
         self.window.Root.grid_rowconfigure(0, weight=1)
@@ -72,15 +72,15 @@ class GfxMgr():
         self.bottom_right.grid(row=0, column=1, sticky="w")
 
         # Create widgets for top frame
-        self.save_label = Label(self.top_frame, text="Save as: ")
-        self.save_entry = Entry(self.top_frame, background="lightgray", width=60)
-        self.url_label = Label(self.top_frame, text="Url: ")
-        self.url_entry = Entry(self.top_frame, background="lightgray", width=60)
-        self.dir_button = Button(self.top_frame, command=self.engine.InputMgr.Get_Dir, text="Save to")
-        self.radio_label = Label(self.top_frame, text="File type: ")
-        self.radio_1 = Radiobutton(self.top_frame, text="aac", variable=self.engine.Data.export_type, value="aac", width=8)
-        self.radio_2 = Radiobutton(self.top_frame, text="mp3", variable=self.engine.Data.export_type, value="mp3", width=8)
-        self.radio_3 = Radiobutton(self.top_frame, text="wav", variable=self.engine.Data.export_type, value="wav", width=8)
+        self.save_label = Label(self.top_frame, text="Save as: ", bg="#f4c242")
+        self.save_entry = Entry(self.top_frame, background="lightgray", width=60, bg="#ef8f09")
+        self.url_label = Label(self.top_frame, text="Url: ", bg="#f4c242")
+        self.url_entry = Entry(self.top_frame, background="lightgray", width=60, bg="#ef8f09")
+        self.dir_button = Button(self.top_frame, command=self.engine.InputMgr.Get_Dir, text="Save to", bg="#ef8f09", activebackground="#ef7409")
+        self.radio_label = Label(self.top_frame, text="File type: ", bg="#f4c242")
+        self.radio_1 = Radiobutton(self.top_frame, text="aac", variable=self.engine.Data.export_type, value="aac", width=8, bg="#f4c242", activebackground="#f4c242", selectcolor="#ef7409")
+        self.radio_2 = Radiobutton(self.top_frame, text="mp3", variable=self.engine.Data.export_type, value="mp3", width=8, bg="#f4c242", activebackground="#f4c242", selectcolor="#ef7409")
+        self.radio_3 = Radiobutton(self.top_frame, text="wav", variable=self.engine.Data.export_type, value="wav", width=8, bg="#f4c242", activebackground="#f4c242", selectcolor="#ef7409")
 
         # Layout widgets for top frame
         self.save_label.grid(row=0, column=0)
@@ -94,8 +94,8 @@ class GfxMgr():
         self.radio_3.grid(row=6, column=0)
 
         # Create Widgets for bottom frame
-        self.close_button = Button(self.bottom_right, text="Quit", command=self.engine.InputMgr.Quit_Button)
-        self.retrieve_button = Button(self.bottom_right, command=self.engine.InputMgr.Retrieve, text="Retrieve")
+        self.close_button = Button(self.bottom_right, text="Quit", command=self.engine.InputMgr.Quit_Button, bg="#ef8f09", activebackground="#ef7409")
+        self.retrieve_button = Button(self.bottom_right, command=self.engine.InputMgr.Retrieve, text="Retrieve", bg="#ef8f09", activebackground="#ef7409")
 
         # Layout Widgets for bottom frame
         self.close_button.grid(row=0, column=0)

@@ -47,6 +47,7 @@ class Window():
         self.Root.geometry("+{}+{}".format(self.positionRight, self .positionDown))
         # Don't let the window be resized
         self.Root.resizable(0, 0)
+        self.Root.config(bg="#f4c242")
 
         # Bring the window to the front on open
         # If on Mac
