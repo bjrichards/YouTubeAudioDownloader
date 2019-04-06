@@ -73,10 +73,10 @@ class GfxMgr():
 
         # Create widgets for top frame
         self.save_label = Label(self.top_frame, text="Save as: ", bg="#f4c242")
-        self.save_entry = Entry(self.top_frame, background="lightgray", width=60, bg="#ef8f09")
+        self.save_entry = Entry(self.top_frame, width=60, bg="#ef8f09", highlightbackground="#f4c242")
         self.url_label = Label(self.top_frame, text="Url: ", bg="#f4c242")
-        self.url_entry = Entry(self.top_frame, background="lightgray", width=60, bg="#ef8f09")
-        self.dir_button = Button(self.top_frame, command=self.engine.InputMgr.Get_Dir, text="Save to", bg="#ef8f09", activebackground="#ef7409")
+        self.url_entry = Entry(self.top_frame, width=60, bg="#ef8f09", highlightbackground="#f4c242")
+        self.dir_button = Button(self.top_frame, command=self.engine.InputMgr.Get_Dir, text="Save to", bg="#ef8f09", activebackground="#ef7409", highlightbackground="#f4c242")
         self.radio_label = Label(self.top_frame, text="File type: ", bg="#f4c242")
         self.radio_1 = Radiobutton(self.top_frame, text="aac", variable=self.engine.Data.export_type, value="aac", width=8, bg="#f4c242", activebackground="#f4c242", selectcolor="#ef7409")
         self.radio_2 = Radiobutton(self.top_frame, text="mp3", variable=self.engine.Data.export_type, value="mp3", width=8, bg="#f4c242", activebackground="#f4c242", selectcolor="#ef7409")
@@ -94,8 +94,8 @@ class GfxMgr():
         self.radio_3.grid(row=6, column=0)
 
         # Create Widgets for bottom frame
-        self.close_button = Button(self.bottom_right, text="Quit", command=self.engine.InputMgr.Quit_Button, bg="#ef8f09", activebackground="#ef7409")
-        self.retrieve_button = Button(self.bottom_right, command=self.engine.InputMgr.Retrieve, text="Retrieve", bg="#ef8f09", activebackground="#ef7409")
+        self.close_button = Button(self.bottom_right, text="Quit", command=self.engine.InputMgr.Quit_Button, bg="#ef8f09", activebackground="#ef7409", highlightbackground="#f4c242")
+        self.retrieve_button = Button(self.bottom_right, command=self.engine.InputMgr.Retrieve, text="Retrieve", bg="#ef8f09", activebackground="#ef7409", highlightbackground="#f4c242")
 
         # Layout Widgets for bottom frame
         self.close_button.grid(row=0, column=0)
